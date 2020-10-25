@@ -48,6 +48,51 @@
 		return(answerUppercase)
 	}
 
+
+	function rockPaperScissors(playerInput, aiInput){
+
+		if(playerInput == "CANCEL"){
+			return("GAME CANCELLED")
+		}
+
+		var combinedSelections = playerInput+aiInput;
+
+		switch(combinedSelections) {
+
+			case "ROCKROCK":
+				result = "DRAW"
+				break;
+			case "ROCKPAPER":
+				result = "COMPUTER WINS"
+				break;
+			case "ROCKSCISSORS":
+				result = "HUMAN WINS"
+				break;
+			case "PAPERROCK":
+				result = "HUMAN WINS"
+				break;
+			case "PAPERPAPER":
+				result = "DRAW"
+				break;
+			case "PAPERSCISSORS":
+				result = "COMPUTER WINS"
+				break;
+			case "SCISSORSROCK":
+				result = "COMPUTER WINS"
+				break;
+			case "SCISSORSPAPER":
+				result = "HUMAN WINS"
+				break;
+			case "SCISSORSSCISSORS":
+				result = "DRAW"
+				break;
+			
+		}
+
+		return(result)
+		
+	}
+
 </script>
 <head>
 <body>
