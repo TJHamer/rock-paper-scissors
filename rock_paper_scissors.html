@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<script>
+	function computerPlay(){
+		let number = Math.random();
+		let hand = "ROCK";
+
+		if (number<=0.33){
+			hand = "PAPER";
+		}else if (number <= 0.66){
+			hand = "SCISSORS";
+		}
+
+		console.log(hand);
+		return(hand);
+	}
+
+
+</script>
+<head>
+<body>
+</body>
+</head>
+</html>
