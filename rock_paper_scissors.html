@@ -15,6 +15,38 @@
 		return(hand);
 	}
 
+	function playerInput(){
+
+		var tryAgain = false;
+		var answer = "";
+		var answerUppercase = "";
+
+		do{
+
+			if(tryAgain){
+				answer = prompt("I couldn't recognise what you typed, please choose either rock, paper or scissors:");		
+			}else{
+				answer = prompt("Choose either rock, paper or scissors:");
+			}
+
+			if(answer == undefined){
+				//cancel the program
+				return("CANCEL");
+			}
+
+			answerUppercase = answer.toUpperCase();
+			
+			if(answerUppercase != "ROCK" && answerUppercase != "PAPER" && answerUppercase != "SCISSORS"){
+				tryAgain = true;
+			}else{
+				tryAgain = false;
+			}
+			
+
+		} while(tryAgain == true)
+
+		return(answerUppercase)
+	}
 
 </script>
 <head>
