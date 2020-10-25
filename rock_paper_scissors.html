@@ -2,6 +2,8 @@
 <html>
 <script>
 	function computerPlay(){
+		//chooses a random option of ROCK/PAPER/SCISSORS
+
 		let number = Math.random();
 		let hand = "ROCK";
 
@@ -16,33 +18,38 @@
 	}
 
 	function playerInput(){
+		//A function to allow the user to pick ROCK/PAPER/SCISSORS
 
 		var tryAgain = false;
 		var answer = "";
 		var answerUppercase = "";
 
+		//Keep asking for an input until a valid one is given, or the user cancels
 		do{
 
+			//give the second answer if an invalid answer is given first
 			if(tryAgain){
 				answer = prompt("I couldn't recognise what you typed, please choose either rock, paper or scissors:");		
 			}else{
 				answer = prompt("Choose either rock, paper or scissors:");
 			}
 
-			if(answer == undefined){
-				//cancel the program
+			if(answer == undefined){//cancel if the user cancels the input
+				
 				return("CANCEL");
 			}
 
+			//change to uppercase for more flexibility of input answers
 			answerUppercase = answer.toUpperCase();
 			
+			//if the answer is invalid, try again
 			if(answerUppercase != "ROCK" && answerUppercase != "PAPER" && answerUppercase != "SCISSORS"){
 				tryAgain = true;
 			}else{
 				tryAgain = false;
 			}
 			
-
+		//keep looping until a valid answer is given (or the user presses cancel)
 		} while(tryAgain == true)
 
 		return(answerUppercase)
@@ -50,6 +57,7 @@
 
 
 	function rockPaperScissors(playerInput, aiInput){
+		//A function comparing the computers and users decision, giving an outcome for the round
 
 		if(playerInput == "CANCEL"){
 			return("GAME CANCELLED")
@@ -94,6 +102,7 @@
 	}
 
 	function game(rounds = 5){
+		//A function to run severl user defined rounds of Rock, Paper, Scissors. Defaults to 5 rounds if no option selected.
 
 		var i = 0;
 		var playerResult = "";
