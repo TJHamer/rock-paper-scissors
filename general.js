@@ -133,6 +133,8 @@ function game(rounds = 5){
 
 }
 
+var playerScore = 0;
+var aiScore = 0;
 
 window.addEventListener("click", function(){
 
@@ -143,6 +145,13 @@ window.addEventListener("click", function(){
 
 	document.getElementById("result").innerHTML = result;
 
+	if(result == "HUMAN WINS"){
+		playerScore++
+		document.getElementById("playerScore").value = playerScore;
+	}else if(result == "COMPUTER WINS"){
+		aiScore++
+		document.getElementById("aiScore").value = aiScore;
+	}
 
 
 })
