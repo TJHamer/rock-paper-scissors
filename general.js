@@ -96,7 +96,7 @@ function rockPaperScissors(playerInput, aiInput){
 	return(result);
 	
 }
-
+/* commented out as this is no longer required, due to using the UI functionality
 function game(rounds = 5){
 	//A function to run severl user defined rounds of Rock, Paper, Scissors. Defaults to 5 rounds if no option selected.
 
@@ -131,26 +131,45 @@ function game(rounds = 5){
 		return("DRAW BEST OF " + rounds);
 	}
 
-}
+}*/
 
+
+//initialise variables
 var playerScore = 0;
 var aiScore = 0;
 
-window.addEventListener("click", function(){
 
-	const player = document.getElementById("playerChoice").value;
-	const ai = computerPlay();
 
-	const result = rockPaperScissors(player, ai)
+window.addEventListener("click", function(e){
 
-	document.getElementById("result").innerHTML = result;
+	//const player = document.getElementById("playerChoice").value;//assign player value from clicking button
+	const player = e.target.id;//assign player value from clicking button
+	const ai = computerPlay();//assign ai value from random function
+	const result = rockPaperScissors(player, ai)//compare results and output a rounds outcome
 
-	if(result == "HUMAN WINS"){
+	document.getElementById("result").innerHTML = result;//display rounds outcome
+
+	if(result == "HUMAN WINS"){//if human wins round, add one to score and display new score
 		playerScore++
 		document.getElementById("playerScore").value = playerScore;
-	}else if(result == "COMPUTER WINS"){
+	}else if(result == "COMPUTER WINS"){//if ai wins round, add one to score and display new score
 		aiScore++
 		document.getElementById("aiScore").value = aiScore;
+	}
+
+
+
+	if (playerScore == 5){
+		document.getElementById("game-outcome").innerHTML = "PLAYER WINS BEST OF 5 - GAME OVER";
+
+  		const outcome = Array.from(document.querySelectorAll(".playerChoice"));
+		outcome.forEach(outcome => outcome.disabled = true);
+
+	}else if(aiScore == 5){
+		document.getElementById("game-outcome").innerHTML = "COMPUTER WINS BEST OF 5 - GAME OVER";
+		
+  		const outcome = Array.from(document.querySelectorAll(".playerChoice"));
+		outcome.forEach(outcome => outcome.disabled = true);
 	}
 
 
